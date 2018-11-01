@@ -1,0 +1,22 @@
+#timer {
+    font-family: Arial, sans-serif;
+    font-size: 20px;
+    color: #8C3031; 
+  }
+  #timer span {
+    font-size: 40px;
+    color: #8C3031;
+    font-weight: 600;
+    margin: 0 3px 0 15px;
+  }
+
+  #footer{
+    background-color: ghostwhite;
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+  }
+
+  .red{
+      color: red;
+  }

@@ -1,20 +1,84 @@
 <!--The content below is only a placeholder and can be replaced.-->
+<header id="header" class="transparent-navbar" style="    float: right;">
+    <div class="navbar-header">
+        <ul class="nav main-nav navbar-right" id="nav" style="float: right;">
+        <li class="nav-item menuitemhome" id="menuitemhome">
+          <a href="#" data-toggle="modal" data-target="#exampleModal" style="color: #8C3031;margin-right: 50px;">Contact Us</a>
+        </li>
+        </ul>
+    </div>
+</header>
+<br><br><br><br><br><br><br>
 <div style="text-align:center">
-  <h1>
-    Welcome to {{ title }}!
-  </h1>
-  <img width="300" alt="Angular Logo" src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNTAgMjUwIj4KICAgIDxwYXRoIGZpbGw9IiNERDAwMzEiIGQ9Ik0xMjUgMzBMMzEuOSA2My4ybDE0LjIgMTIzLjFMMTI1IDIzMGw3OC45LTQzLjcgMTQuMi0xMjMuMXoiIC8+CiAgICA8cGF0aCBmaWxsPSIjQzMwMDJGIiBkPSJNMTI1IDMwdjIyLjItLjFWMjMwbDc4LjktNDMuNyAxNC4yLTEyMy4xTDEyNSAzMHoiIC8+CiAgICA8cGF0aCAgZmlsbD0iI0ZGRkZGRiIgZD0iTTEyNSA1Mi4xTDY2LjggMTgyLjZoMjEuN2wxMS43LTI5LjJoNDkuNGwxMS43IDI5LjJIMTgzTDEyNSA1Mi4xem0xNyA4My4zaC0zNGwxNy00MC45IDE3IDQwLjl6IiAvPgogIDwvc3ZnPg==">
+  <img width="300" alt="Angular Logo" src="../assets/imgs/logo.jpg">
+  <br><br>
+<h2>
+  <div id="timer">
+  <span id="days">{{days}}</span>days
+  <span id="hours">{{hours}}</span>hours
+  <span id="minutes">{{minutes}}</span>minutes
+  <span id="seconds">{{seconds}}</span>seconds
+</div> 
+</h2>
+<p>
+  Our website is under development/ maintenance <br>
+  We will be back live on 14/11/2018
+</p>
 </div>
-<h2>Here are some links to help you start: </h2>
-<ul>
-  <li>
-    <h2><a target="_blank" rel="noopener" href="https://angular.io/tutorial">Tour of Heroes</a></h2>
-  </li>
-  <li>
-    <h2><a target="_blank" rel="noopener" href="https://github.com/angular/angular-cli/wiki">CLI Documentation</a></h2>
-  </li>
-  <li>
-    <h2><a target="_blank" rel="noopener" href="https://blog.angular.io/">Angular blog</a></h2>
-  </li>
-</ul>
+<footer id="footer" style="text-align:center">  
+          <a href="http://www.swazitv.co.sz" style="padding-right: 100px;" target="_blank"><img height="50px" src="../assets/imgs/swazitv.jpg" /></a>
+          <a href="http://mogztec.co.za" style="padding-right: 100px;" target="_blank"><img src="../assets/imgs/mogztec.png" /></a>
+          <a href="https://www.facebook.com/BurntMushroomCreative" style="padding-right: 100px;" target="_blank">  <img height="50px" src="../assets/imgs/BurntMushroomCreative.jpg" /></a>
+</footer>
+
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" id="closeModel" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            <h3>Leave us a message.</h3>         
+        </div>
+        <div class="modal-body">
+            <form [formGroup]="contactUsForm" style="text-align: left;" class="contact_us_padding">
+                
+                <div class="form-row">
+                    <div class="form-group col-md-6">
+                      <label for="inputEmail4">Name</label>
+                      <input [(ngModel)]="message.name" [value]="message.name" formControlName="name" (input)="message.name = $event.target.value" type="text" class="form-control" id="name" aria-describedby="emailHelp">
+                      <small *ngIf="!contactUsForm.controls.name.valid && (contactUsForm.controls.name.dirty || submitAttempt)" class="red">The field above is required.</small>
+                    </div>
+                    <div class="form-group col-md-6">
+                      <label for="inputPassword4">Surname</label>
+                      <input [(ngModel)]="message.surname" [value]="message.surname" formControlName="surname" (input)="message.surname = $event.target.value" type="text" class="form-control" id="surname" aria-describedby="emailHelp">
+                      <small *ngIf="!contactUsForm.controls.surname.valid && (contactUsForm.controls.surname.dirty || submitAttempt)" class="red">The field above is required.</small>
+                    </div>
+                  </div>
+                  <div class="form-row">
+                      <div class="form-group col-md-6">
+                        <label for="inputEmail4">Contact Number</label>
+                        <input [(ngModel)]="message.contactNumber" [value]="message.contactNumber" formControlName="contactNumber" (input)="message.contactNumber = $event.target.value" type="number" class="form-control" id="contactNumber" aria-describedby="emailHelp">
+                        <small *ngIf="!contactUsForm.controls.contactNumber.valid && (contactUsForm.controls.contactNumber.dirty || submitAttempt)" class="red">The field above is required.</small>
+                      </div>
+                      <div class="form-group col-md-6">
+                        <label for="inputPassword4">Email Address</label>
+                        <input [(ngModel)]="message.emailaddress" [value]="message.emailaddress" formControlName="emailaddress" (input)="message.emailaddress = $event.target.value" type="email" class="form-control" id="email" aria-describedby="emailHelp">
+                        <small *ngIf="!contactUsForm.controls.emailaddress.valid && (contactUsForm.controls.emailaddress.dirty || submitAttempt)" class="red">The field above is required.</small>
+                      </div>
+                    </div>
+                <div class="form-group">
+                    <label for="exampleInputEmail1">Message</label>
+                    <textarea [(ngModel)]="message.message" [value]="message.message" formControlName="message" (input)="message.message = $event.target.value" class="form-control rounded-0" id="message" rows="3"></textarea>
+                    <small *ngIf="!contactUsForm.controls.message.valid && (contactUsForm.controls.message.dirty || submitAttempt)" class="red">The field above is required.</small>
+                  </div>
+              </form>
+        </div>
+        <div class="modal-footer">
+          <small *ngIf="showError" style="color: green;font-size:small;text-align:center;float: left;">Thank you your message has been sent successfully.</small>  
+          <button type="button" (click)="sendMessage()" class="btn btn-primary">Sent</button>
+        </div>
+      </div>
+    </div>
+  </div>
 
