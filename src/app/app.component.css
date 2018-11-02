@@ -11,7 +11,6 @@
   }
 
   #footer{
-    background-color: ghostwhite;
     position: absolute;
     bottom: 0;
     width: 100%;
@@ -19,4 +18,24 @@
 
   .red{
       color: red;
+  }
+
+  .mobilefooter{
+    padding-right: 100px;
+  }
+
+  @media only screen and (max-width: 767px) {
+    #timer {
+      font-size: 15px !important;
+    }
+    #timer span {
+      font-size: 20px !important;
+    }
+    .mobilefooter{
+      padding-right: 0px !important;
+    }
+
+    .footerimg{
+      width: 30% !important;
+    }
   }
